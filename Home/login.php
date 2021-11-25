@@ -11,7 +11,7 @@ if(isset($_POST['login'])){
   $correo = mysqli_real_escape_string($db, $_POST['correo']);
   $password = mysqli_real_escape_string($db, $_POST['password']);
 
-  $query = "SELECT * FROM usuarios WHERE correo= '$correo' AND contra='$password'";
+  $query = "SELECT * FROM lectores WHERE correo= '$correo' AND contra='$password'";
 $results = mysqli_query($db, $query);
 
 if (empty($correo)) {
@@ -26,8 +26,8 @@ if(count($errors) == 0){
 if (mysqli_num_rows($results) == 1) {
 
   while($row = $results->fetch_assoc()) {
-    echo "Usuario: " . $row["nombreUsuario"];
-    $_SESSION['username'] = $row["nombreUsuario"];
+    echo "Usuario: " . $row["nombre"];
+    $_SESSION['username'] = $row["nombre"];
   }
              
  
@@ -92,7 +92,7 @@ if (mysqli_num_rows($results) == 1) {
           <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingrese su Contraseña">
         </div>
       <button type="submit" class="btn btn-primary" name="login">Iniciar Sesión</button>
-      <a href="#">No tiene una cuenta? De clic aquí para registrarse</a>
+      <a href="registro_lector.php">No tiene una cuenta? De clic aquí para registrarse</a>
 </form>
     </div>
 

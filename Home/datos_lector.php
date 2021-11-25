@@ -1,5 +1,8 @@
 <?php
- $conexion = mysqli_connect('localhost', 'root','', 'progweb');
+session_start();
+ $db = mysqli_connect('localhost', 'root','', 'progweb');
+ $query = mysqli_query($db, "SELECT * FROM lectores WHERE id = '1'");    
+ $row = mysqli_fetch_array($query);
  //$id=$_GET['id']; //obtener id pasando variable
 ?>
 
@@ -9,7 +12,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modificacion de datos</title>
+    <title>Modificacion de datos de lector</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
@@ -94,11 +97,9 @@ crossorigin="anonymous"></script>
             <button class="btn btn-primary"><i class="fa fa-search"></i></button>
             </div>
             <?php  if (isset($_SESSION['username'])) : ?>
-            <li><i class="fa fa-user" style="margin-right: 5px;" id="iniciar"></i><a href="login.php" style="color: white;">
-            
-    <p>
-                Bienvenido
-                <strong>
+            <li><i class="fa fa-user" style="margin-right: 5px;" id="iniciar"></i><a style="color: white;"> 
+            <p>Bienvenido
+<strong>
                     <?php echo $_SESSION['username']; ?>
                 </strong>
             </p>
@@ -118,13 +119,59 @@ crossorigin="anonymous"></script>
 
 
 
-<form class="formulario" method=post action="modificarBD.php">
-        <h1 id="modificar_datos" style="text-align: left;">Modificar Datos Lector</h1>
+<form class="formulario" method=post action="modificar_lector.php">
+        <h1 id="modificar_datos" style="text-align: left;">Datos de <strong>
+                    <?php echo $_SESSION['username']; ?>
+                </strong></h1>
         <div class="contenedor">
             <div class="input-contenedor">
-             <input type="text" placeholder="Tema de interes" name="tema_interes" style="height: 50px; width:350px">
+             <h2>
+             <strong>
+                    <?php echo 'Nombre: ' . $row['nombre'];?>
+                </strong>
+             </h2>
             </div>
-            <br>
+             <br>
+             <div class="input-contenedor">
+             <h2>
+             <strong>
+                    <?php echo 'Apellidos: ' . $row['apellidos'];?>
+                </strong>
+             </h2>
+            </div>
+             <br>
+             <div class="input-contenedor">
+             <h2>
+             <strong>
+                    <?php echo 'Correo: ' . $row['correo'];?>
+                </strong>
+             </h2>
+            </div>
+             <br>
+             <div class="input-contenedor">
+             <h2>
+             <strong>
+                    <?php echo 'Edad: ' . $row['edad'];?>
+                </strong>
+             </h2>
+            </div>
+             <br>
+             <div class="input-contenedor">
+             <h2>
+             <strong>
+                    <?php echo 'Tema de interes: ' . $row['tema_interes'];?>
+                </strong>
+             </h2>
+            </div>
+             <br>
+             <div class="input-contenedor">
+             <h2>
+             <strong>
+                    <?php echo 'Contraseña: ' . $row['contra'];?>
+                </strong>
+             </h2>
+            </div>
+             <br>
          <input type="submit" value="Modificar" class="button btn-primary" name="modificar" id="modificar">
      </div>
     </form>

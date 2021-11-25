@@ -53,7 +53,7 @@ session_start();
            <a href="Tortillas.php"> <button class="btn btn-primary" ><i class="fa fa-search"></i></button></a>
             </div>
             <?php  if (isset($_SESSION['username'])) : ?>
-            <li><i class="fa fa-user" style="margin-right: 5px;" id="iniciar"></i><a href="login.php" style="color: white;">
+            <li><i class="fa fa-user" style="margin-right: 5px;" id="iniciar"></i><a href="datos_lector.php" style="color: white;">
             
     <p>
                 Bienvenido
