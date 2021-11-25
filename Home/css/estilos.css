@@ -1,0 +1,74 @@
+body{
+    box-sizing: border-box;
+    font-family: 'Domine', serif;
+    width: 100%;
+    background-color:antiquewhite;
+}
+
+.barra{
+    display: flex;
+    flex-direction: row;
+    top: 205px;
+    display: inline;
+    left: -10px;
+    width: 100%;
+}
+
+.jumbotron-fluid{
+    background-color: blue; 
+    position: absolute; 
+    top: 0; 
+    left: 0;
+    width: 100%;
+    padding: 50px
+}
+
+.barra ul{
+    background-color: #21201c;
+    color: white;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    list-style-type: none;
+    width: 100%;
+    
+}
+
+li{
+    margin: 0 80px 0 80px;
+}
+
+img{
+    width: 500px;
+    height: 500px;
+}
+
+input{
+    width: 100px;
+}
+
+#iniciar a{
+    text-decoration: none;
+    color: white;
+}
+
+li:hover{
+    background-color: #b89c9a;
+}
+
+#sub-menu ul{
+    flex-direction: column;
+    list-style-type: disc;
+}
+
+.contenedor-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.cuerpo{
+    text-align: justify;
+    margin-left: 10px;
+}
